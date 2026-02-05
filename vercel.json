@@ -19,13 +19,13 @@
             "dest": "backend/server.js"
         },
         {
-            "src": "/(assets/.*)",
-            "dest": "frontend/dist/$1"
+            "src": "/(.*)",
+            "dest": "frontend/$1",
+            "check": true
         },
         {
             "src": "/(.*)",
-            "dest": "frontend/dist/index.html",
-            "check": true
+            "dest": "frontend/index.html"
         }
     ]
 }
