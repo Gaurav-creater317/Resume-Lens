@@ -1,3 +1,4 @@
+
 # Resume Lens AI 📷✨
 
 Resume Lens is a full-stack AI-powered resume analysis tool with the requested folder structure.
@@ -27,3 +28,6 @@ Resume Lens is a full-stack AI-powered resume analysis tool with the requested f
 
 ---
 Built with ❤️ by Antigravity
+=======
+# Resume-Lens
+>>>>>>> 4b498c907a828aeffdf720f495a573050a1081d4
