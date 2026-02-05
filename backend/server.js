@@ -41,16 +41,14 @@ transporter.verify(function (error, success) {
     }
 });
 
-if (process.env.NODE_ENV !== 'production') {
-    app.listen(PORT, () => {
-        console.log(`Server is running on port ${PORT}`);
-    });
-}
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
 
 module.exports = app;
 
 // Global Error Handler
 app.use((err, req, res, next) => {
-    console.error('Unhandled Server Error:', err);
+    console.error('Unhandled Server Error:', err.stack || err);
     res.status(500).json({ error: 'Global server error', details: err.message });
 });

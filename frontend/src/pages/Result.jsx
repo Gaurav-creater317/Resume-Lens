@@ -24,14 +24,38 @@ const Result = () => {
 
     setReport(activeReport);
 
-    if (activeReport.score >= 80) {
-      confetti({
-        particleCount: 200,
-        spread: 120,
-        origin: { y: 0.6 },
-        colors: ['#3b82f6', '#10b981', '#ffffff']
-      });
-    }
+    // Celebration Sparkles
+    const triggerSparkles = () => {
+      const duration = 3 * 1000;
+      const animationEnd = Date.now() + duration;
+      const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+      const randomInRange = (min, max) => Math.random() * (max - min) + min;
+
+      const interval = setInterval(function () {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+          return clearInterval(interval);
+        }
+
+        const particleCount = 50 * (timeLeft / duration);
+        confetti({
+          ...defaults,
+          particleCount,
+          origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+          colors: ['#6D93FB', '#10b981', '#ffffff']
+        });
+        confetti({
+          ...defaults,
+          particleCount,
+          origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+          colors: ['#6D93FB', '#10b981', '#ffffff']
+        });
+      }, 250);
+    };
+
+    triggerSparkles();
   }, [location.state, navigate]);
 
   if (!report) return (
@@ -162,7 +186,7 @@ const Result = () => {
               <div className="ats-icon-box"><FileSearch size={32} /></div>
               <div className="ats-text">
                 <h4>Pro Tip: Pass the ATS Bots</h4>
-                <p>Companies use algorithms to filter resumes. To increase your score to 90+, ensure your experience section contains quantifiable results (percentages and numbers) and uses standard industry keywords found in the job description.</p>
+                <p>{report.atsTip || "Companies use algorithms to filter resumes. To increase your score to 90+, ensure your experience section contains quantifiable results (percentages and numbers) and uses standard industry keywords found in the job description."}</p>
               </div>
             </motion.div>
           </div>

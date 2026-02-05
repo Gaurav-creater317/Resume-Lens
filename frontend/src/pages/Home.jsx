@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Upload, FileText, Loader2, Sparkles, CheckCircle2, ShieldCheck, Mail, Briefcase } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import confetti from 'canvas-confetti';
 
 const Home = () => {
     const [jobRole, setJobRole] = useState('Frontend Developer');
@@ -40,6 +41,7 @@ const Home = () => {
         }
     };
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('--- Analysis Button Clicked ---');
@@ -50,6 +52,23 @@ const Home = () => {
         }
         if (!email) {
             alert('Please enter your email.');
+            return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
+        const allowedDomains = [
+            'gmail.com', 'yahoo.com', 'icloud.com', 'outlook.com',
+            'hotmail.com', 'live.com', 'aol.com', 'protonmail.com',
+            'proton.me', 'zoho.com', 'yandex.com'
+        ];
+        const domain = email.split('@')[1].toLowerCase();
+        if (!allowedDomains.includes(domain)) {
+            alert('Please use a trusted email provider (like Gmail, Yahoo, iCloud, or Outlook).');
             return;
         }
 
@@ -91,12 +110,11 @@ const Home = () => {
 
             if (response.data.success) {
                 clearInterval(stageInterval);
-                setLoadingStage('Analysis Complete! Redirecting...');
                 localStorage.setItem('latest_resume_report', JSON.stringify(response.data.data));
 
                 setTimeout(() => {
                     navigate('/result', { state: { report: response.data.data } });
-                }, 1000);
+                }, 500); // Quick redirect
             }
         } catch (error) {
             clearInterval(stageInterval);
@@ -258,25 +276,27 @@ const Home = () => {
                     >
                         <h3 className="features-title">Why use Resume Lens?</h3>
                         <div className="feature-items">
-                            <div className="feature-item">
-                                <div className="feat-icon"><CheckCircle2 color="#10b981" /></div>
-                                <div className="feat-text">
-                                    <h4>Instant Scoring</h4>
-                                    <p>Get a precise score out of 100 based on industry benchmarks.</p>
+                            <div className="feature-items">
+                                <div className="feature-item">
+                                    <div className="feat-icon"><CheckCircle2 color="#10b981" /></div>
+                                    <div className="feat-text">
+                                        <h4>Instant Scoring</h4>
+                                        <p>Get a precise score out of 100 based on industry benchmarks.</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="feature-item">
-                                <div className="feat-icon"><ShieldCheck color="#6D93FB" /></div>
-                                <div className="feat-text">
-                                    <h4>ATS Optimization</h4>
-                                    <p>Our AI identifies keywords that help you bypass HR filters.</p>
+                                <div className="feature-item">
+                                    <div className="feat-icon"><ShieldCheck color="#6D93FB" /></div>
+                                    <div className="feat-text">
+                                        <h4>ATS Optimization</h4>
+                                        <p>Our AI identifies keywords that help you bypass HR filters.</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="feature-item">
-                                <div className="feat-icon"><Mail color="#f59e0b" /></div>
-                                <div className="feat-text">
-                                    <h4>Inbox Ready</h4>
-                                    <p>A professional report is archived and sent to your email instantly.</p>
+                                <div className="feature-item">
+                                    <div className="feat-icon"><Mail color="#f59e0b" /></div>
+                                    <div className="feat-text">
+                                        <h4>Inbox Ready</h4>
+                                        <p>A professional report is archived and sent to your email instantly.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
