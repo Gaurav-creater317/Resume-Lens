@@ -94,21 +94,25 @@ This design choice ensures **accurate AI feedback and consistent results**.
 ```bash
 git clone https://github.com/Gaurav-creater317/Resume-Lens.git
 cd Resume-Lens
-2️⃣ Backend Setup
+```
+### 2️⃣ Backend Setup
+```bash
 cd backend
 npm install
 Create a .env file in backend:
-
 PORT=5000
 EMAIL_USER=your_email@gmail.com
 EMAIL_PASS=your_google_app_password
 GEMINI_API_KEY=your_gemini_api_key
 ⚠️ Use a Google App Password, not your regular email password.
-
-3️⃣ Frontend Setup
+```
+### 3️⃣ Frontend Setup
+```bash
 cd frontend
 npm install
-▶️ Running the Application
+```
+### ▶️ Running the Application
+```bash
 Terminal 1 (Backend):
 
 cd backend
@@ -121,9 +125,9 @@ cd frontend
 npm run dev
 App runs on http://localhost:5173
 ```
-
 ## 📂 Project Structure
-```Resume-Lens/
+```
+Resume-Lens/
 ├── backend/                # Express Server Code
 │   ├── controllers/        # Logic for resume analysis
 │   ├── routes/             # API Endpoints
@@ -138,23 +142,16 @@ App runs on http://localhost:5173
     │   └── index.css       # Global Styles
     └── vite.config.js      # Vite Configuration
 ```
-
 ## 📈 Future Enhancements
-User authentication (Login / Signup)
-
-Resume history dashboard
-
-ATS keyword matching
-
-Downloadable PDF reports
-
-Job description vs resume comparison
-
-👨‍💻 Author
+- User authentication (Login / Signup)
+- Resume history dashboard
+- ATS keyword matching
+- Downloadable PDF reports
+- Job description vs resume comparison
+## 👨‍💻 Author
 Designed with ❤️ by **Gaurav Mehra**
 B.Tech CSE Student | Full-Stack Developer
 GitHub: https://github.com/Gaurav-creater317
-
 ## 🤝 Contributing
 Contributions are welcome!  
 Feel free to fork the repository and submit a pull request.
