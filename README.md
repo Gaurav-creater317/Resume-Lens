@@ -1,33 +1,154 @@
+# 📄 Resume Lens 📷✨ 
+**AI-Powered Resume Analysis & Optimization Tool**
 
-# Resume Lens AI 📷✨
-
-Resume Lens is a full-stack AI-powered resume analysis tool with the requested folder structure.
-
-## Folder Structure
-
-- `/frontend`: React application with `src`, `pages`, and `components`.
-- `/backend`: Node.js/Express server with `src`, `routes`, and `controllers`.
-
-## Getting Started
-
-### Backend Setup
-1. `cd backend`
-2. `npm install`
-3. Create `.env` from `.env.example`
-4. `npm run dev`
-
-### Frontend Setup
-1. `cd frontend`
-2. `npm install`
-3. `npm run dev`
-
-## Features
-- **AI Scoring**: Instant resume scoring based on job roles.
-- **Email Reports**: Automated improvement feedback sent via Gmail.
-- **Glassmorphism UI**: High-end modern design.
+Resume Lens is a modern **full-stack web application** that helps job seekers analyze and optimize their resumes for **ATS (Applicant Tracking Systems)**.  
+It leverages **Google Gemini AI** along with a **robust heuristic fallback system** to generate role-specific insights, scores, and improvement suggestions — delivered instantly via email.
 
 ---
-Built with ❤️ by Antigravity
-=======
-# Resume-Lens
->>>>>>> 4b498c907a828aeffdf720f495a573050a1081d4
+
+## 🚀 Live Demo
+👉 https://resumelens-nine.vercel.app/
+
+---
+
+## 🧠 What Resume Lens Does
+- Accepts **valid resume documents only** (PDF / text-based resumes)
+- Analyzes resumes using **AI + rule-based heuristics**
+- Generates **role-specific scores and insights**
+- Identifies strengths, missing keywords, and improvement areas
+- Sends a **detailed analysis report to the user’s email**
+- Gracefully handles invalid or non-resume documents via validation
+
+---
+
+## ✨ Key Features
+
+- 🤖 **AI-Powered Resume Analysis**  
+  Uses **Google Gemini 1.5 Flash** for deep, context-aware resume evaluation.
+
+- 🎯 **Role-Specific Scoring**  
+  Tailored analysis for roles such as Frontend, Backend, DevOps, Data Science, etc.
+
+- 🛡️ **Heuristic Fallback System**  
+  Ensures resume analysis continues even if the AI service is unavailable.
+
+- 📧 **Automated Email Reports**  
+  Sends structured, HTML-based reports with scores, strengths, and missing skills.
+
+- 🔒 **Input Validation & Security**  
+  Resume-only validation, email domain verification (MX records), and file integrity checks.
+
+- ✨ **Modern UI/UX**  
+  Smooth animations and responsive design for a premium user experience.
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **React 19 (Vite)**
+- **Framer Motion** – Animations & transitions
+- **Lucide React** – Icons
+- **Axios** – API communication
+- **Canvas Confetti** – Interactive feedback
+- **Vanilla CSS** – Custom responsive styling
+
+### Backend
+- **Node.js & Express**
+- **Google Gemini AI**
+- **Nodemailer** – Email delivery
+- **Multer** – File uploads
+- **PDF-Parse** – Resume text extraction
+- **DNS & Regex** – Advanced email validation
+
+---
+
+## ⚠️ Input Scope & Validation
+
+Resume Lens is **not a general document analyzer**.
+
+✔️ Supported:
+- Professional resumes (PDF or text-based)
+
+❌ Not supported:
+- Random documents
+- Notes, books, or syllabi
+- Image-only PDFs
+- Non-resume content
+
+This design choice ensures **accurate AI feedback and consistent results**.
+
+---
+
+## 🏁 Getting Started (Local Setup)
+
+### Prerequisites
+- **Node.js** (v18+)
+- **npm** or **yarn**
+- **Google Gemini API Key**
+- **Gmail account** with App Password enabled
+
+---
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/Gaurav-creater317/Resume-Lens.git
+cd Resume-Lens
+2️⃣ Backend Setup
+cd backend
+npm install
+Create a .env file in backend:
+
+PORT=5000
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASS=your_google_app_password
+GEMINI_API_KEY=your_gemini_api_key
+⚠️ Use a Google App Password, not your regular email password.
+
+3️⃣ Frontend Setup
+cd frontend
+npm install
+▶️ Running the Application
+Terminal 1 (Backend):
+
+cd backend
+npm run dev
+Server runs on http://localhost:5000
+
+Terminal 2 (Frontend):
+
+cd frontend
+npm run dev
+App runs on http://localhost:5173
+
+## 📂 Project Structure
+Resume-Lens/
+├── backend/                # Express Server Code
+│   ├── controllers/        # Logic for resume analysis
+│   ├── routes/             # API Endpoints
+│   ├── server.js           # Entry point
+│   └── .env                # Secrets (Not committed)
+│
+└── frontend/               # React Application
+    ├── src/
+    │   ├── components/     # Reusable UI components
+    │   ├── pages/          # Home and Result pages
+    │   ├── App.jsx         # Routing Logic
+    │   └── index.css       # Global Styles
+    └── vite.config.js      # Vite Configuration
+
+## 📈 Future Enhancements
+User authentication (Login / Signup)
+
+Resume history dashboard
+
+ATS keyword matching
+
+Downloadable PDF reports
+
+Job description vs resume comparison
+
+👨‍💻 Author
+Gaurav Mehra
+B.Tech CSE Student | Full-Stack Developer
+GitHub: https://github.com/Gaurav-creater317
