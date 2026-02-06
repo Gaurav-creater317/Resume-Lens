@@ -123,7 +123,7 @@ App runs on http://localhost:5173
 ```
 
 ## 📂 Project Structure
-Resume-Lens/
+```Resume-Lens/
 ├── backend/                # Express Server Code
 │   ├── controllers/        # Logic for resume analysis
 │   ├── routes/             # API Endpoints
@@ -137,6 +137,7 @@ Resume-Lens/
     │   ├── App.jsx         # Routing Logic
     │   └── index.css       # Global Styles
     └── vite.config.js      # Vite Configuration
+```
 
 ## 📈 Future Enhancements
 User authentication (Login / Signup)
