@@ -120,6 +120,7 @@ Terminal 2 (Frontend):
 cd frontend
 npm run dev
 App runs on http://localhost:5173
+```
 
 ## 📂 Project Structure
 Resume-Lens/
@@ -149,6 +150,11 @@ Downloadable PDF reports
 Job description vs resume comparison
 
 👨‍💻 Author
-Gaurav Mehra
+Designed with ❤️ by **Gaurav Mehra**
 B.Tech CSE Student | Full-Stack Developer
 GitHub: https://github.com/Gaurav-creater317
+
+## 🤝 Contributing
+Contributions are welcome!  
+Feel free to fork the repository and submit a pull request.
+
